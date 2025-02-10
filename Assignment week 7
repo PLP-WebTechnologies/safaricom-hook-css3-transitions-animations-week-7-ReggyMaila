@@ -1,0 +1,151 @@
+
+Assignment: Building an Interactive and Dynamic Web Page
+
+Part 1: CSS3 Transitions and Animations
+
+1. Smooth Effects on Hover/Focus
+
+.button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+
+2. Keyframe Animations
+
+A fading banner
+A rotating loading spinner
+
+
+Animated Banner
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.banner {
+  width: 100%;
+  padding: 20px;
+  background-color: #ff5733;
+  color: white;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+
+Loading Spinner
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid lightgray;
+  border-top: 5px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+
+Part 2: JavaScript Functions
+
+1. Function with Parameters and Return Value
+This function calculates the area of a rectangle based on user input.
+
+function calculateArea(width, height) {
+  return width * height;
+}
+
+// Example usage
+console.log(calculateArea(5, 10)); // 50
+
+
+2. Function Demonstrating Scope
+
+let globalVar = "I am global";
+
+function showScope() {
+  let localVar = "I am local";
+  console.log(globalVar); // Accessible
+  console.log(localVar); // Accessible inside the function
+}
+
+showScope();
+console.log(globalVar); // Accessible
+// console.log(localVar); // Uncaught ReferenceError: localVar is not defined
+
+
+
+3. Function to Toggle CSS Class for Modal
+
+function toggleModal() {
+  let modal = document.getElementById("myModal");
+  modal.classList.toggle("hidden");
+}
+
+css
+.hidden {
+  display: none;
+}
+
+Part 3: Combining CSS Animations with JavaScript
+
+1. Interactive Element Triggering Animation
+
+CSS Animation
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bounce {
+  animation: bounce 0.5s ease-in-out;
+}
+
+JavaScript to Control Animation
+
+function triggerBounce() {
+  let element = document.getElementById("box");
+  
+  element.classList.remove("bounce"); // Reset animation
+  void element.offsetWidth; // Force reflow
+  element.classList.add("bounce"); // Restart animation
+}
+
+
+HTML Example
+
+<div id="box" class="button">Click Me</div>
+<button onclick="triggerBounce()">Animate</button>
+
+
+
